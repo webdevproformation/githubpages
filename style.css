@@ -1,0 +1,160 @@
+body{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #4cd3c2;
+  color:#363636;
+  min-height:100vh; 
+  font-family:  sans-serif; 
+}
+
+ul{ 
+  margin: 0;  
+  padding: 0; 
+}
+li{
+  list-style: none;
+}
+nav{
+   margin:   0.5em 0;
+}
+nav ul{
+  display: flex;
+}
+
+nav ul li:first-child{
+  margin-right: 10px;
+
+}
+
+nav ul li:last-child{
+  margin-left: 10px;
+}
+
+a, .separateur{
+  color:inherit;
+  text-decoration: none;
+  font-size:  2em;
+  font-weight:  700;
+}
+
+
+
+a.actif{
+  color:#ffbcbc;
+}
+h1{
+  font-size:  2em;
+  font-weight:  500;
+ 
+}
+
+.box{
+  position: relative;
+  width: 400px;
+  height: 400px;
+  overflow:hidden;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+  flex-direction: column;
+
+}
+
+.box span{
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  box-sizing: border-box;
+}
+
+.box span:nth-child(1){
+  transform: rotate(0);
+}
+
+.box span:nth-child(2){
+  transform: rotate(90deg);
+}
+
+.box span:nth-child(2):before{
+  animation-delay: -2s;
+}
+
+.box span:nth-child(3){
+  transform: rotate(180deg);
+}
+
+.box span:nth-child(4){
+  transform: rotate(270deg);
+}
+
+.box span:nth-child(4):before{
+  animation-delay: -2s;
+}
+.box span:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #363636;
+  animation : animate 4s linear infinite ;
+}
+
+@keyframes animate {
+  0%{
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  50%{
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  50.1%{
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  100%{
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+}
+
+.grid__picture{
+  width: 50px;
+}
+
+.atom{
+  animation: rotation 3s linear infinite;
+}
+
+
+@keyframes rotation {
+  to { 
+    transform: rotate(360deg);
+   }
+}
+
+.balance{
+  animation: oscilation 4s linear infinite;
+  transform-origin: center bottom;
+}
+
+@keyframes oscilation {
+
+  0%,100%{
+    transform: rotate(0deg);
+  }
+
+  33.33333%{
+    transform: rotate(-40deg);
+  }
+  66.66666%{
+    transform: rotate(40deg);
+  }
+}
